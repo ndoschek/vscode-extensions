@@ -1,0 +1,55 @@
+{
+	"name": "terminal-message-extension-11145",
+	"description": "VSCode Extension to test initial message on opening terminal",
+	"publisher": "ndoschek",
+    "repository": {
+        "url": "https://github.com/ndoschek/vscode-extensions"
+    },
+	"version": "0.0.1",
+	"engines": {
+        "node": ">=14",
+		"vscode": "^1.65.0",
+        "yarn": ">=1.7.0 <2"
+	},
+	"activationEvents": [
+		"*"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+        "commands": [
+            {
+                "command": "openTerminal.with",
+                "title": "Open terminal with initial message"
+            },
+			{
+                "command": "openTerminal.withlinebreak",
+                "title": "Open terminal with initial message and line break"
+            },
+			{
+                "command": "openTerminal.withtab",
+                "title": "Open terminal with initial message and horizontal tab"
+            },
+            {
+                "command": "openTerminal.without",
+                "title": "Open terminal without initial message"
+            }
+        ]
+    },
+	"scripts": {
+		"prepare": "yarn run clean && yarn run build",
+        "clean": "rimraf lib ",
+        "build": "tsc -b && yarn run lint",
+        "lint": "eslint --ext .ts ./src",
+        "package": "vsce package"
+	},
+	"devDependencies": {
+        "@types/node": "14",
+		"@types/vscode": "^1.65.0",
+		"@typescript-eslint/eslint-plugin": "^5.30.0",
+		"@typescript-eslint/parser": "^5.30.0",
+		"eslint": "^8.18.0",
+        "rimraf": "^3.0.2",
+		"typescript": "^4.7.4",
+        "vsce": "2.9.2"
+	}
+}
