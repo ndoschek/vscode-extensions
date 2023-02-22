@@ -1,0 +1,59 @@
+{
+    "name": "vscode-extension-log-output-channel-12017",
+    "description": "VSCode Extension to test LogOutputChannel",
+    "publisher": "ndoschek",
+    "repository": {
+        "url": "https://github.com/ndoschek/vscode-extensions"
+    },
+    "version": "0.0.1",
+    "engines": {
+        "node": ">=16",
+        "vscode": "^1.74.0",
+        "yarn": ">=1.7.0 <2"
+    },
+    "activationEvents": [
+        "*"
+    ],
+    "main": "./out/extension.js",
+    "contributes": {
+        "commands": [
+            {
+                "command": "logoutputview.message.trace",
+                "title": "Log a TRACE message via LogOutputChannel"
+            },
+            {
+                "command": "logoutputview.message.debug",
+                "title": "Log a DEBUG message via LogOutputChannel"
+            },
+            {
+                "command": "logoutputview.message.info",
+                "title": "Log an INFO message via LogOutputChannel"
+            },
+            {
+                "command": "logoutputview.message.warning",
+                "title": "Log a WARNING message via LogOutputChannel"
+            },
+            {
+                "command": "logoutputview.message.error",
+                "title": "Log an ERROR message via LogOutputChannel"
+            }
+        ]
+    },
+    "scripts": {
+        "prepare": "yarn run clean && yarn run build",
+        "clean": "rimraf lib ",
+        "build": "tsc -b && yarn run lint",
+        "lint": "eslint --ext .ts ./src",
+        "package": "vsce package --allow-star-activation"
+    },
+    "devDependencies": {
+        "@types/node": "16",
+        "@types/vscode": "^1.74.0",
+        "@typescript-eslint/eslint-plugin": "^5.53.0",
+        "@typescript-eslint/parser": "^5.53.0",
+        "eslint": "^8.34.0",
+        "rimraf": "^3.0.2",
+        "typescript": "^4.9.5",
+        "vsce": "^2.15.0"
+    }
+}
