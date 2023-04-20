@@ -51,11 +51,20 @@ export class TestLogOutputChannelExtension {
             commands.registerCommand(this.getLogMessageCommandId('info'), () => {
                 this.logOutput.info('Logging an INFO message via LogOutputChannel');
             }),
+            commands.registerCommand(this.getLogMessageCommandId('info.args'), () => {
+                this.logOutput.info('Logging an INFO message via LogOutputChannel with 4 passed arguments:', 0, 'one', false, { "name": "tst" });
+            }),
             commands.registerCommand(this.getLogMessageCommandId('warning'), () => {
                 this.logOutput.warn('Logging a WARNING message via LogOutputChannel');
             }),
             commands.registerCommand(this.getLogMessageCommandId('error'), () => {
                 this.logOutput.error('Logging an ERROR message via LogOutputChannel');
+            }),
+            commands.registerCommand(this.getLogMessageCommandId('error.throw'), () => {
+                this.logOutput.error(new Error('Throw an ERROR and log via LogOutputChannel'));
+            }),
+            commands.registerCommand(this.getLogMessageCommandId('replace'), () => {
+                this.logOutput.replace('Replace LogOutputChannel content');
             })
         );
     }

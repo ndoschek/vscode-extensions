@@ -30,12 +30,24 @@
                 "title": "Log an INFO message via LogOutputChannel"
             },
             {
+                "command": "logoutputview.message.info.args",
+                "title": "Log an INFO message via LogOutputChannel with args"
+            },
+            {
                 "command": "logoutputview.message.warning",
                 "title": "Log a WARNING message via LogOutputChannel"
             },
             {
                 "command": "logoutputview.message.error",
                 "title": "Log an ERROR message via LogOutputChannel"
+            },
+            {
+                "command": "logoutputview.message.error.throw",
+                "title": "Throw an ERROR and log via LogOutputChannel"
+            },
+            {
+                "command": "logoutputview.message.replace",
+                "title": "Test replace LogOutputChannel"
             }
         ]
     },
