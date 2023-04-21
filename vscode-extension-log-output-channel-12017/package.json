@@ -43,11 +43,23 @@
             },
             {
                 "command": "logoutputview.message.error.throw",
-                "title": "Throw an ERROR and log via LogOutputChannel"
+                "title": "Throw an ERROR and log msg via LogOutputChannel"
+            },
+            {
+                "command": "logoutputview.message.error.throwStack",
+                "title": "Throw an ERROR and log stack via LogOutputChannel"
             },
             {
                 "command": "logoutputview.message.replace",
                 "title": "Test replace LogOutputChannel"
+            },
+            {
+                "command": "logoutputview.message.append",
+                "title": "Append text content to LogOutputChannel"
+            },
+            {
+                "command": "logoutputview.message.appendLine",
+                "title": "Append text content as new line to LogOutputChannel"
             }
         ]
     },

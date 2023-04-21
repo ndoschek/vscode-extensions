@@ -52,7 +52,7 @@ export class TestLogOutputChannelExtension {
                 this.logOutput.info('Logging an INFO message via LogOutputChannel');
             }),
             commands.registerCommand(this.getLogMessageCommandId('info.args'), () => {
-                this.logOutput.info('Logging an INFO message via LogOutputChannel with 4 passed arguments:', 0, 'one', false, { "name": "tst" });
+                this.logOutput.info('Logging an INFO message via LogOutputChannel with 4 passed arguments:', 0, 'one', false, { "name": "tst" }, [1, true, { "id": 5 }]);
             }),
             commands.registerCommand(this.getLogMessageCommandId('warning'), () => {
                 this.logOutput.warn('Logging a WARNING message via LogOutputChannel');
@@ -61,10 +61,21 @@ export class TestLogOutputChannelExtension {
                 this.logOutput.error('Logging an ERROR message via LogOutputChannel');
             }),
             commands.registerCommand(this.getLogMessageCommandId('error.throw'), () => {
-                this.logOutput.error(new Error('Throw an ERROR and log via LogOutputChannel'));
+                const err = new Error('Throw an ERROR and log msg via LogOutputChannel');
+                err.stack = undefined;
+                this.logOutput.error(err);
+            }),
+            commands.registerCommand(this.getLogMessageCommandId('error.throwStack'), () => {
+                this.logOutput.error(new Error('Throw an ERROR and log stack via LogOutputChannel'));
             }),
             commands.registerCommand(this.getLogMessageCommandId('replace'), () => {
                 this.logOutput.replace('Replace LogOutputChannel content');
+            }),
+            commands.registerCommand(this.getLogMessageCommandId('append'), () => {
+                this.logOutput.append('Append text content to LogOutputChannel');
+            }),
+            commands.registerCommand(this.getLogMessageCommandId('appendLine'), () => {
+                this.logOutput.appendLine('Append text content as new line to LogOutputChannel');
             })
         );
     }
